@@ -24,7 +24,7 @@ function MemberLogin() {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/member-login", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/member-login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
