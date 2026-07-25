@@ -49,7 +49,8 @@ function MemberLogin() {
   };
 
   return (
-<div className="w-full max-w-md bg-white rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-10 mx-4 sm:mx-auto mt-10 sm:mt-20">
+    <div className="w-full max-w-md bg-white rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-10 mx-4 sm:mx-auto mt-10 sm:mt-20">
+
       <div className="text-center mb-8">
         <h2 className="text-3xl font-bold text-gray-800">Member Login</h2>
         <p className="text-gray-500 mt-2">Login to view your assigned leads.</p>

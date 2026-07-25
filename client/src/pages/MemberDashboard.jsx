@@ -22,7 +22,7 @@ function MemberDashboard() {
 
   const fetchMyLeads = async (token) => {
     try {
-      const res = await fetch("http://localhost:5000/api/leads/my-leads", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/leads/my-leads`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -43,10 +43,11 @@ function MemberDashboard() {
   };
 
   return (
-<div className="max-w-6xl mx-auto mt-4 sm:mt-10 px-3 sm:px-6">
-  <h2 className="text-lg sm:text-3xl font-bold text-gray-800 mb-4 sm:mb-6">
-    Welcome, {memberName} — Your Assigned Leads
-  </h2>
+    <div className="max-w-6xl mx-auto mt-4 sm:mt-10 px-3 sm:px-6">
+
+      <h2 className="text-lg sm:text-3xl font-bold text-gray-800 mb-4 sm:mb-6">
+        Welcome, {memberName} — Your Assigned Leads
+      </h2>
 
       {loading ? (
         <p className="text-gray-500">Loading leads...</p>

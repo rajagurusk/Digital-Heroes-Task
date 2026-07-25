@@ -30,7 +30,7 @@ function AdminDashboard() {
       const params = new URLSearchParams({ page, limit: 10 });
       if (statusFilter) params.append("status", statusFilter);
 
-      const res = await fetch(`http://localhost:5000/api/leads?${params}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/leads?${params}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -52,7 +52,7 @@ function AdminDashboard() {
   const handleAssign = async (leadId, memberName) => {
     if (!memberName) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/leads/${leadId}/assign`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/leads/${leadId}/assign`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         body: JSON.stringify({ assignedTo: memberName }),
@@ -68,7 +68,7 @@ function AdminDashboard() {
 
   const handleStatusChange = async (leadId, status) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/leads/${leadId}/status`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/leads/${leadId}/status`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         body: JSON.stringify({ status }),
@@ -90,7 +90,7 @@ function AdminDashboard() {
   const handleAddNote = async (leadId) => {
     if (!noteText.trim()) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/leads/${leadId}/notes`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/leads/${leadId}/notes`, {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         body: JSON.stringify({ text: noteText }),
